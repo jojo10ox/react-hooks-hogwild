@@ -1,8 +1,13 @@
 import React from "react";
 
-export default function Filter() {
+export default function Filter({onCategoryChange}) {
     return (
-        <div>Is this thing on?
+        <div className="filterWrapper">
+            <select name="filter" onChange={onCategoryChange}>
+                <option value="All">Greased/Ungreased</option>
+                <option value="greased">Greased</option>
+                <option value="ungreased">Ungreased</option>
+            </select>
         </div>
     )
 }
