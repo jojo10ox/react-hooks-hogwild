@@ -9,14 +9,14 @@ export default function HogTile(props) {
     }
     
     const smallPig = (
-        <div className="pigTile">
+        <div>
             <h2>{props.name}</h2>
             <img src={props.image} alt={props.name}/>
         </div>
     )
 
     const bigPig = (
-        <div className="pigTile">
+        <div>
             <h2>{props.name}</h2>
             <img src={props.image} alt={props.name}/>
             <p>Specialty: {props.specialty}</p>
@@ -27,6 +27,6 @@ export default function HogTile(props) {
     )
 
     return (
-        <div onClick={handleClick}>{showPig ? bigPig : smallPig}</div>
+        <div className="image pigTile ui two wide column" onClick={handleClick}>{showPig ? bigPig : smallPig}</div>
     )
 }

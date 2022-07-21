@@ -76,8 +76,8 @@ const HogList = ({piggies}) => {
             <Filter 
             onSortChange = {handleSort}
             onCategoryChange={handleChange}/>
-            <ul className="hogList">{handleSortPigs(sortPigs, hogsToDisplay).map((piggie) => <HogTile key = {piggie.name} name={piggie.name} image={piggie.image} specialty={piggie.specialty} weight={piggie.weight} greased={piggie.greased} medal={piggie["highest medal achieved"]} />)}
-            </ul>
+            <div className="ui grid container">{handleSortPigs(sortPigs, hogsToDisplay).map((piggie) => <HogTile key = {piggie.name} name={piggie.name} image={piggie.image} specialty={piggie.specialty} weight={piggie.weight} greased={piggie.greased} medal={piggie["highest medal achieved"]} />)}
+            </div>
         </div>
     )
 }
