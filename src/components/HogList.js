@@ -5,6 +5,22 @@ import HogTile from "./HogTile";
 const HogList = ({piggies}) => {
     
     const [isGreased, setIsGreased] = useState('All')
+    const [sortPigs, setSort] = useState("A")
+
+    function handleSort(e) {
+        setSort(e.target.value)
+    }
+
+    console.log(piggies.sort(function(a,b){
+        if(a.name<b.name){
+            return -1
+        }
+        if(a.name>b.name){
+            return 1
+        }
+        return 0;
+    }))
+
 
     function handleChange(e) {
         setIsGreased(e.target.value)
@@ -23,7 +39,9 @@ const HogList = ({piggies}) => {
 
     return(
         <div>
-            <Filter onCategoryChange={handleChange}/>
+            <Filter 
+            onSortChange = {handleSort}
+            onCategoryChange={handleChange}/>
             <ul className="hogList">{hogsToDisplay.map((piggie) => <HogTile key = {piggie.name} name={piggie.name} image={piggie.image} specialty={piggie.specialty} weight={piggie.weight} greased={piggie.greased} medal={piggie["highest medal achieved"]} />)}
             </ul>
         </div>
